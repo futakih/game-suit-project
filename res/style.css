@@ -58,5 +58,18 @@ button{
     color: #7879b9;
     font-family: 'Sigmar One', cursive;
 }
-
-
+.splash .center button{
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 1.25em;
+    line-height: 1em;
+    background: #7879b9;
+    color: #fff;
+    border:none;
+    border-radius: 50px;
+    box-shadow: 0 8px 0 #6869a1;
+}
+.splash .center button:active{
+    transform: translateY(8px);
+    box-shadow: none;
+}
