@@ -13,6 +13,14 @@ let batu=document.getElementById("batu");
 let gunting=document.getElementById("gunting");
 let kertas=document.getElementById("kertas");
 
+if (localStorage.getItem("skorKen")){
+    skorKen = localStorage.getItem("skorKen");
+    displaySkorKen.innerHTML=skorKen;
+}
+if (localStorage.getItem("skorPlayer")){
+    skorPlayer = localStorage.getItem("skorPlayer");
+    displaySkorPlayer.innerHTML=skorPlayer;
+}
 startGame.addEventListener("click", ()=>{
     splashScreen.style.top="-120vh";
     splashScreen.style.transition=".75s";
@@ -32,6 +40,7 @@ reset.addEventListener("click", ()=>{
         skorPlayer= 0;
         displaySkorKen.innerHTML = skorKen;
         displaySkorPlayer.innerHTML =skorPlayer;
+        localStorage.clear();
     };
 });
 function janken(tangan){
@@ -83,11 +92,13 @@ function result(who){
     switch(who){
         case "ken":
             skorKen++;
+            localStorage.setItem("skorKen",skorKen)
             displaySkorKen.innerHTML=skorKen;
             console.log("Ninja Ken menang");
             break;
         case "player":
             skorPlayer++;
+            localStorage.setItem("skorPlayer",skorPlayer)
             displaySkorPlayer.innerHTML=skorPlayer;
             console.log("Anda menang");
             break;
